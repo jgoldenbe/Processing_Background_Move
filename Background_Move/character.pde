@@ -1,12 +1,8 @@
-void characterIdle() {
+void characterMovement() {
   if (keyPressed == false) {
     image(dinoIdle[frameCount%10], start_x, start_y, creatureW, creatureH);
     frameRate(12);
-  }
-}
-
-void characterWalk() {
-  if (keyPressed == true) {
+  } else {
     if (key == 'a' || key == 'A' || key == 'd' || key == 'D') {
       image(dinoWalk[frameCount%10], start_x, start_y, creatureW, creatureH);
       frameRate(12);
@@ -15,9 +11,25 @@ void characterWalk() {
 }
 
 void characterRun() {
+  if (keyCode == 16 && keyCode == D_KEY) {
+    image(dinoRun[frameCount%8], start_x, start_y, creatureW, creatureH);
+    frameRate(12);
+  }
+}
+
+void characterJump() {
   if (keyPressed == true) {
-    if (keyCode == 16 && keyCode == D_KEY) {
-      image(dinoRun[frameCount%8], start_x, start_y, creatureW, creatureH);
+    if (keyCode == 32) {
+      if (creatureH + start_y > ground) {
+        start_y = ground - creatureH;
+
+        jumpingSpeed = 0;
+
+        jumping = false;
+      } else {
+        jumpingSpeed ++;
+      }
+      image(dinoJump[frameCount%12], start_x, start_y, creatureW, creatureH);
       frameRate(12);
     }
   }

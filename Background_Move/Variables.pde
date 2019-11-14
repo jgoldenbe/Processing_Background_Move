@@ -23,3 +23,9 @@ int creatureW = 350;
 int creatureH = 320;
 
 int shiftPressed = 0;
+
+boolean jumping = false;
+
+float jumpingSpeed = 0;
+
+int ground = 745;

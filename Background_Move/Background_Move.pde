@@ -16,8 +16,7 @@ void draw() {
   //Loads Background Initially
   bgLoad();
   
-  characterIdle();
-  characterWalk();
+  characterMovement();
   characterRun();
   
   //Loads ground Repeat

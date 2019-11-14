@@ -23,4 +23,10 @@ void keyPressed()
   {
     right = 1;
   }
+  
+  if (!jumping) {
+    jumpingSpeed = -15;
+    
+    jumping = true;
+  }
 }
